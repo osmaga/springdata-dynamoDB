@@ -1,0 +1,25 @@
+GET
+===
+curl -i  http://localhost:8080/movies
+curl -i  http://localhost:8080/movie/Doctor%20Sleep
+curl -i  http://localhost:8080/movie/Doctor%20Sleep/2019-11-08
+curl -i  http://localhost:8080/movie/The%20Little%20Things
+
+POST
+====
+curl -id'{"title": "Doctor Sleep", "releaseDate": "2019-11-08", "plot": "Years following the events of The Shining (1980), a now-adult Dan Torrance must protect a young girl with similar powers from a cult known as The True Knot, who prey on children with powers to remain immortal.", "director": "Mike Flanagan", "length": 152, "seen": false}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+curl -id'{"title": "The Little Things", "releaseDate": "2021-01-29", "plot": "Kern County Deputy Sheriff Joe Deacon is sent to Los Angeles for what should have been a quick evidence-gathering assignment. Instead, he becomes embroiled in the search for a serial killer who is terrorizing the city.", "director": "John Lee Hancock", "length": 128, "seen": true}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+curl -id'{"title": "Promising Young Woman", "releaseDate": "2020-12-25", "plot": "A young woman, traumatized by a tragic event in her past, seeks out vengeance against those who crossed her path.", "director": "Emerald Fennell", "length": 113, "seen": true}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+curl -id'{"title": "Tenet", "releaseDate": "2020-09-03", "plot": "Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.", "director": "Christopher Nolan", "length": 150, "seen": false, "details": {"originCountries": ["United Kingdom", "United States"]}}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+curl -id'{"title": "Doctor Sleep", "releaseDate": "2019-11-08", "plot": "Years following the events of The Shining (1980), a now-adult Dan Torrance must protect a young girl with similar powers from a cult known as The True Knot, who prey on children with powers to remain immortal.", "director": "Mike Flanagan", "length": 152, "seen": true, "details": {"originCountries": ["United Kingdom", "United States"], "languages": ["English"], "aka": "Doctor Sueño"}}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+curl -id'{"title": "The Little Things", "releaseDate": "2016-06-07", "plot": "A veteran and famous French actor receives a lesson from his young and vital personal assistant in this short advertising on the roughness, lack of empathy, own and those of others wounded pride.", "director": "Alberto Rodriguez", "length": 16, "seen": false, "details": {"originCountries": ["Spain"], "languages": ["Spanish"], "aka": "Las pequeñas cosas"}}' -H "Content-Type: application/json" -X POST http://localhost:8080/movie
+
+DELETE
+======
+curl -i -X DELETE  http://localhost:8080/movie/The%20Little%20Things/2016-06-07
+
